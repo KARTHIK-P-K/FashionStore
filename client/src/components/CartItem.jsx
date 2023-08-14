@@ -7,13 +7,14 @@ import shirt2 from "../assets/t-shirt.png";
 import shirt3 from "../assets/tshirt.png";
 import shirt4 from "../assets/tshirt3.png";
 import shirt5 from "../assets/tshirt4.png";
-import shirt from "../assets/shirt.png";
+import shirt6 from "../assets/shirt.png";
 
 const CartItem = ({ item }) => {
   const { removeItem } = useContext(CartContext);
+
   const linkTo = item.id < 1000 ? `/product/${item.id}` : `/customise`;
   const shirtImages = {
-    1000: shirt,
+    1000: shirt6,
     1001: shirt3,
     1002: shirt5,
     1003: shirt4,

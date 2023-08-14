@@ -13,6 +13,7 @@ import {
   EditorTabs2,
 } from "../config/constants";
 import { fadeAnimation, slideAnimation } from "../config/motion";
+import axios from "axios";
 
 import AIPicker from "./AIPicker";
 import ColorPicker from "./ColorPicker";
@@ -33,6 +34,18 @@ const Customizer = ({ index, value }) => {
     logoShirt: true,
     stylishShirt: false,
   });
+
+  // useEffect(() => {
+  //   const sample = async () => {
+  //     try {
+  //       const response = await axios.request(options);
+  //       console.log(response.data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+  //   sample();
+  // });
 
   // show tab content depending on the activeTab
   const generateTabContent = () => {

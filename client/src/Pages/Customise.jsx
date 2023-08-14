@@ -11,6 +11,7 @@ const Customise = () => {
   const handleSizeChange = (size) => {
     setSelectedSize(size);
   };
+
   const price = (value) => {
     switch (value) {
       case "night":
@@ -75,6 +76,7 @@ const Customise = () => {
       <Customizer value={value} />
 
       <Canvas value={value} />
+
       <div className="flex flex-col  items-end mr-20 md:mr-40 lg:mr-60 xl:mr-80 pb-10">
         <h1 className="text-xl xl:text-3xl font-semibold uppercase mb-8 ">
           {tshirtNames[value]}

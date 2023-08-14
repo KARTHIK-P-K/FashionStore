@@ -2,9 +2,28 @@ import React, { useContext } from "react";
 import { IoClose, IoCartOutline } from "react-icons/io5";
 import { CartContext } from "../context/CartContext";
 import CartItem from "./CartItem";
+import { loadStripe } from "@stripe/stripe-js";
+import { makeRequest } from "../makeRequest";
 
 const Cart = () => {
   const { setIsOpen, cart, total, clearCart } = useContext(CartContext);
+  const stripePromise = loadStripe(
+    "pk_test_51NVR4XSEayEX6AoNkVCbYfcNvoIJfZuuZ98rHqGno1U6n5cjhaeKCrZfD7Y9NOkhuuYLMOrIYmXfHhM4naR2iTi800gWgK1AlH"
+  );
+
+  const handlePayment = async () => {
+    try {
+      const stripe = await stripePromise;
+      const res = await makeRequest.post("/orders", {
+        cart,
+      });
+      await stripe.redirectToCheckout({
+        sessionId: res.data.stripeSession.id,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="w-full h-full   text-white flex flex-col px-4 justify-between gap-y-4 ">
       <div className="">
@@ -40,7 +59,10 @@ const Cart = () => {
               >
                 Clear cart
               </button>
-              <button className="bg-amber-300 rounded-md p-2 md:text-2xl md:px-8 text-xl text-black  px-2 gap-x-2">
+              <button
+                onClick={handlePayment}
+                className="bg-amber-300 rounded-md p-2 md:text-2xl md:px-8 text-xl text-black  px-2 gap-x-2"
+              >
                 Checkout
               </button>
             </div>

@@ -10,8 +10,8 @@ const CategoryNav = () => {
     <BiSolidTShirt />,
     <GiArmoredPants />,
 
-    <FaRedhat />,
     <GiConverseShoe />,
+    <FaRedhat />,
   ];
   let i = 0;
 

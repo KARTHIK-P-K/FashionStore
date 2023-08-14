@@ -27,15 +27,15 @@ const Product = ({ product }) => {
             alt=""
             className="w-full h-full   "
           />
-          <h1 className="text-amber-500 uppercase text-sm font-bold mx-2">
+          <h1 className="text-amber-500 uppercase text-sm font-bold mx-2 ">
             {product.attributes.categories.data[0].attributes.title}
           </h1>
           <div className="mx-2">
             <Stars rating={avg} />
           </div>
 
-          <div className="flex mt-5 justify-between px-2 gap-6">
-            <h1 className="text-lg ">{product.attributes.title}</h1>
+          <div className="flex mt-5 justify-between px-2 gap-6 ">
+            <h1 className="text-lg capitalize ">{product.attributes.title}</h1>
 
             <p className="font-bold text-xl ">${product.attributes.price}</p>
           </div>
