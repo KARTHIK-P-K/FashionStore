@@ -22,7 +22,7 @@ import CustomButton from "./CustomButton";
 import Tab from "./Tab";
 
 const Customizer = ({ index, value }) => {
-  const OPENAI_API_KEY = "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";
+  const OPENAI_API_KEY = import.meta.env.VITE_REACT_APP_OPENAI_KEY;
   const snap = useSnapshot(state);
   const [file, setFile] = useState("");
 
