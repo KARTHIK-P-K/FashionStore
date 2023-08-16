@@ -49,31 +49,35 @@ const ProductDetails = () => {
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row gap-[30px] mb-[30px]  ">
           <div className="flex flex-row justify-center lg:flex-col gap-4">
-            <img
-              src={`http://localhost:1337${data[0]?.attributes.image.data.attributes.url}`}
-              alt="img1"
-              className="w-20 h-25 cursor-pointer max-w-[150px] max-h-[150px]"
-              onClick={handleClick1}
-            />
-            <img
-              src={`http://localhost:1337${data[0]?.attributes.img2.data.attributes.url}`}
-              alt="img1"
-              className="w-20 h-25 cursor-pointer max-w-[150px] max-h-[150px]"
-              onClick={handleClick2}
-            />
+            <div className={`${pic === 1 && "border-2 border-amber-300"}`}>
+              <img
+                src={`http://localhost:1337${data[0]?.attributes.image.data.attributes.url}`}
+                alt="img1"
+                className={`w-20 h-25 cursor-pointer max-w-[150px] max-h-[150px] `}
+                onClick={handleClick1}
+              />
+            </div>
+            <div className={`${pic === 2 && "border-2 border-amber-300"}`}>
+              <img
+                src={`http://localhost:1337${data[0]?.attributes.img2.data.attributes.url}`}
+                alt="img1"
+                className="w-20 h-25 cursor-pointer max-w-[150px] max-h-[150px] "
+                onClick={handleClick2}
+              />
+            </div>
           </div>
           <div className=" flex-1 lg:max-w-[40%] lg:h-[540px] grad rounded-lg flex justify-center items-center ">
             {pic === 1 ? (
               <img
                 src={`http://localhost:1337${data[0]?.attributes.image.data.attributes.url}`}
                 alt="loading..."
-                className="w-full max-w-[65%] max-h-[540px]"
+                className="w-full max-w-[75%] md:max-w-[65%] max-h-[540px]"
               />
             ) : (
               <img
                 src={`http://localhost:1337${data[0]?.attributes.img2.data.attributes.url}`}
                 alt="loading..."
-                className="w-full max-w-[65%] max-h-[540px]"
+                className="w-full max-w-[75%] md:max-w-[65%] max-h-[540px]"
               />
             )}
           </div>
@@ -89,7 +93,7 @@ const ProductDetails = () => {
               <p>({ratingsArray.length} reviews)</p>
             </div>
 
-            <p className="mt-4 mb-12 xl:text-lg">
+            <p className="mt-4 mb-12 xl:text-lg text-slate-800">
               {data[0].attributes.description}
             </p>
             <div className="flex   gap-x-8">

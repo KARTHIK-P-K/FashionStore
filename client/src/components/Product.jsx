@@ -4,7 +4,6 @@ import useFetch from "../hooks/useFetch";
 import Stars from "./Stars";
 
 const Product = ({ product }) => {
-  console.log(product);
   const ratingsArr = product.attributes.ratings.data;
   let sum = 0;
   let avg = 5;
@@ -15,7 +14,7 @@ const Product = ({ product }) => {
 
   return (
     <Link to={`/product/${product.id}`}>
-      <div className="group flex border-2 shadow-lg bg-white rounded-lg items-center justify-center relative  pb-32 max-w-[300px]">
+      <div className="group flex border-2 shadow-sm bg-white rounded-lg items-center justify-center relative  pb-32 max-w-[260px]">
         {product.attributes.isNew && (
           <div className="absolute top-4 right-4 bg-amber-500 z-10 p-2 font-extrabold rounded-full">
             New

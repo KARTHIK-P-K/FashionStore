@@ -6,11 +6,14 @@ import Hero from "../components/Hero";
 
 const Home = () => {
   const { data } = useFetch("/products?populate=*&filters[isNew]=true");
-  // console.log(data);
+
   return (
-    <div className="px-[60px]">
-      <Hero />
-      <LatestProducts data={data} />
+    <div>
+      <div className="md:px-[60px] px-[20px]">
+        <Hero />
+
+        <LatestProducts data={data} />
+      </div>
       <Footer />
     </div>
   );

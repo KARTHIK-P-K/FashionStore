@@ -66,7 +66,7 @@ const AddRatingForm = ({ productId }) => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="bg-black text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none"
+          className="bg-black text-white py-2 px-4 rounded hover:bg-black-600 focus:outline-none"
         >
           {isSubmitting ? "Submitting..." : "Submit Review"}
         </button>
