@@ -3,7 +3,7 @@ import { makeRequest } from "../makeRequest";
 import { CartContext } from "../context/CartContext";
 
 const AddRatingForm = ({ productId }) => {
-  const { ratingState, setRatingState } = useContext(CartContext);
+  const { ratingState, setRatingState, user } = useContext(CartContext);
   const [ratingValue, setRatingValue] = useState(0);
   const [reviewText, setReviewText] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -19,7 +19,7 @@ const AddRatingForm = ({ productId }) => {
           review: reviewText,
           ratingnumber: ratingValue,
           products: productId,
-          name: "You",
+          name: user,
         },
       };
 

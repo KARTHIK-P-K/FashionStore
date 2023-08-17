@@ -15,6 +15,7 @@ const Search = () => {
   const { data } = useFetch(
     `/products?populate=*&filters[title][$contains]=${searchTerm}`
   );
+
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentData = data.slice(firstPostIndex, lastPostIndex);

@@ -19,7 +19,7 @@ const Products = () => {
     }
 `
   );
-  console.log(data);
+
   // console.log(data[0].attributes.categories.data[0].attributes.title);
   useEffect(() => {
     if (data[0]) {
@@ -29,7 +29,7 @@ const Products = () => {
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentData = data.slice(firstPostIndex, lastPostIndex);
-  console.log(currentPage);
+
   return (
     <div className="mb-16 pt-40 lg:pt-0 px-[60px]">
       <div className="container mx-auto">

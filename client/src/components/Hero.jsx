@@ -14,7 +14,7 @@ const Hero = () => {
             <CategoryNav />
             {/* <Sample /> */}
           </div>
-          <div className="w-full h-[500px] max-w-lg lg:max-w-[734px] mx-auto ">
+          <div className="w-full xl:h-[500px] max-w-lg lg:max-w-[734px] mx-auto ">
             <MainSlider />
           </div>
           <div className="flex flex-col w-full  h-[500px] max-w-lg mx-auto gap-y-[30px] ">
@@ -33,7 +33,7 @@ const Hero = () => {
               <img
                 src={shirt}
                 alt="shirt"
-                className="absolute w-[100px] h-[250px] md:w-[300px] md:h-[300px] top-0 right-0 object-cover"
+                className="absolute w-[100px] h-[250px] md:w-[270px] md:h-[300px] top-0 right-0 object-cover"
               />
             </div>
             <div className="grad flex-1 h-[250px] rounded-[8px] overflow-hidden relative p-6 border-2">
@@ -51,7 +51,7 @@ const Hero = () => {
               <img
                 src={pant}
                 alt="pant"
-                className="absolute  w-[100px]  h-[250px] md:w-[300px] md:h-[300px] top-0 right-0 object-cover"
+                className="absolute  w-[100px]  h-[250px] md:w-[270px] md:h-[300px] top-0 right-0 object-cover"
               />
             </div>
           </div>

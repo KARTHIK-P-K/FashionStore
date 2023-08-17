@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import SearchForm from "./SearchForm";
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiLogOut } from "react-icons/fi";
 import { BiCart } from "react-icons/bi";
 import CategoryNavMobile from "./CategoryNavMobile";
 import { Link } from "react-router-dom";
@@ -8,9 +8,12 @@ import Cart from "./Cart";
 import { CartContext } from "../context/CartContext";
 import Dressup from "../images/dressup-logo.png";
 import CartIcon from "../images/cartIcon.png";
+// import { FiLogOut } from "react-icons/fi";
+import { FaUser } from "react-icons/fa";
 
 const Navbar = () => {
-  const { isOpen, setIsOpen, itemsAmount } = useContext(CartContext);
+  const { isOpen, setIsOpen, itemsAmount, user, unsetToken } =
+    useContext(CartContext);
   const [catNavMobile, setCatNavMobile] = useState(false);
 
   return (
@@ -42,15 +45,13 @@ const Navbar = () => {
           <div className="hidden w-full xl:flex xl:max-w-[734px]  ">
             <SearchForm />
           </div>
-          <div className="flex item-center gap-x-[10px]">
-            {/* <div className="hidden xl:flex uppercase">
-              Need Help ? Contact 0471 1234567
-            </div> */}
+
+          <div className="flex items-center  gap-x-[15px]  md:gap-x-[40px]">
             <div
               className="cursor-pointer relative"
               onClick={() => setIsOpen(!isOpen)}
             >
-              <BiCart className="text-4xl bg-black text-white rounded-lg p-1" />
+              <BiCart className="text-2xl md:text-4xl bg-black text-white rounded-lg p-1" />
               {/* <img src={CartIcon} className="w-[150px] h-[120px]" /> */}
               <div className="bg-amber-500 text-black absolute w-[18px] h-[18px] rounded-full top-2 -right-2 text-[13px] flex justify-center items-center font-bold tracking-[-.1em] ">
                 {itemsAmount}
@@ -62,6 +63,18 @@ const Navbar = () => {
               } bg-black shadow-xl fixed top-0 bottom-0 w-full z-10 md:max-w-[500px] transition-all duration-300 overflow-y-auto`}
             >
               <Cart />
+            </div>
+            <div>
+              {!user ? (
+                <Link to="/login">
+                  <FaUser className="md:w-10 md:h-8 w-8 h-6 cursor-pointer" />
+                </Link>
+              ) : (
+                <FiLogOut
+                  onClick={unsetToken}
+                  className="md:w-10 md:h-8 w-8 h-6   cursor-pointer"
+                />
+              )}
             </div>
           </div>
         </div>

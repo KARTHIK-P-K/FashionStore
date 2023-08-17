@@ -6,11 +6,12 @@ import { CartContext } from "../context/CartContext";
 import Ratings from "../components/Ratings";
 import AddRatingForm from "../components/AddRatingForm";
 import Stars from "../components/Stars";
+import Loader from "../components/Loader";
 
 const ProductDetails = () => {
   const [review, setReview] = useState(false);
   const [selectedSize, setSelectedSize] = useState("S"); // Set the default size
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, user } = useContext(CartContext);
   const [pic, setPic] = useState(1);
   const { id } = useParams();
   const { data } = useFetch(`/products?populate=*&filters[id][$eq]=${id}`);
@@ -23,7 +24,7 @@ const ProductDetails = () => {
   };
 
   if (data.length === 0) {
-    return <div className="container mx-auto">Loading.....</div>;
+    return <Loader />;
   }
   const categoryTitle = data[0].attributes.categories.data[0].attributes.title;
   const imageUrl = `http://localhost:1337${data[0]?.attributes.image.data.attributes.url}`;
@@ -32,6 +33,11 @@ const ProductDetails = () => {
     setSelectedSize(size);
   };
   const handleClick = () => {
+    if (!user) {
+      alert("Log in to  shop");
+      return;
+    }
+
     setReview(!review);
   };
   const ratingsArray = data[0].attributes.ratings?.data;

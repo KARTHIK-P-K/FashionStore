@@ -1,5 +1,6 @@
 import { useState, createContext, useEffect } from "react";
 import Cart from "../components/Cart";
+import Cookies from "js-cookie";
 
 export const CartContext = createContext();
 
@@ -10,6 +11,7 @@ const CartProvider = ({ children }) => {
   const [amount, setAmount] = useState(0);
   const [total, setTotal] = useState(0);
   const [ratingState, setRatingState] = useState(true);
+  const [user, setUser] = useState(Cookies.get("username"));
 
   useEffect(() => {
     const amount = cart.reduce((a, c) => {
@@ -23,6 +25,10 @@ const CartProvider = ({ children }) => {
   }, [cart]);
 
   const addToCart = (item, id) => {
+    if (!user) {
+      alert(" Log in to Shop");
+      return;
+    }
     const itemId = parseInt(id);
 
     const newItem = { ...item[0], amount: 1 };
@@ -95,6 +101,24 @@ const CartProvider = ({ children }) => {
   };
   const clearCart = () => [setCart([])];
 
+  const getCookieUsername = () => {
+    return Cookies.get("username");
+  };
+
+  const setToken = (data) => {
+    Cookies.set("id", data.user.id);
+    Cookies.set("username", data.user.username);
+    Cookies.set("jwt", data.jwt);
+    setUser(getCookieUsername());
+  };
+
+  const unsetToken = () => {
+    Cookies.remove("id");
+    Cookies.remove("username");
+    Cookies.remove("jwt");
+    setUser("");
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -110,6 +134,10 @@ const CartProvider = ({ children }) => {
         clearCart,
         ratingState,
         setRatingState,
+        setToken,
+        getCookieUsername,
+        unsetToken,
+        user,
       }}
     >
       {children}

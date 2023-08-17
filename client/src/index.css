@@ -5,6 +5,29 @@
 body {
   font-family: "Playfair Display";
   /* padding: 20px 60px; */
+  /* background: linear-gradient(
+    45deg,
+    #f0f0f0,
+    #e0e0e0,
+    #d0d0d0,
+    #c0c0c0,
+    #b0b0b0
+  ); */
   padding: 20px 0;
   /* background-color: #f5f5f5; */
+}
+.gradient-text {
+  /* font-size: 2rem;
+  font-weight: bold; */
+  background-image: linear-gradient(
+    45deg,
+    orange,
+    yellow,
+    #c7a10a,
+    #131804,
+    #d19d0e
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

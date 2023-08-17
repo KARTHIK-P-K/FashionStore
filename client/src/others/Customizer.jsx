@@ -119,13 +119,12 @@ const Customizer = ({ index, value }) => {
       setGeneratingImg(true);
 
       const response = await openai.createImage({
-        prompt: "a white siamese cat",
+        prompt: prompt,
         n: 1,
         size: "1024x1024",
         response_format: "b64_json",
       });
       const image_url = await response.data.data[0].b64_json;
-      console.log(image_url);
 
       handleDecals(type, `data:image/png;base64,${image_url}`);
     } catch (error) {

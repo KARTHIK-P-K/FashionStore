@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 const MainSlider = () => {
   return (
-    <div className="border-2 shadow-md rounded-lg h-full p-4 relative">
+    <div className="border-2 shadow-md rounded-lg h-[300px] xl:h-full p-4 relative ">
       {/* <img src={main} className="w-full h-full object-cover" /> */}
-      <h1 className="text-amber-500 lg:text-6xl md:text-4xl text-3xl font-bold mb-10">
+      <h1 className="text-amber-500 xl:text-7xl lg:text-6xl md:text-4xl text-3xl font-bold mb-10">
         Let's Design Dreams !
       </h1>
-      <h1 className="text-black text-xl ">
+      <h1 className="text-black text-xl xl:text-2xl">
         Design your exclusive shirt using our state-of-the-art
         <span className="font-bold"> AI 3D </span>
         customization tool. Let your creativity flow and express your unique
